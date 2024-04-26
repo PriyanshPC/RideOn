@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="origin-trial" content="AjlQd1gzqSlgL0m5R6UzX/seK2l6d/hMbVbGovm8B6qc+3TnwuEGUPIH6I4mYzmWZ70latoevq/81DC5oqV6FgQAAABKeyJvcmlnaW4iOiJodHRwOi8vbG9jYWxob3N0OjYzMzQyIiwiZmVhdHVyZSI6IldlYlNRTCIsImV4cGlyeSI6MTcxNjk0MDc5OX0=">
+    <title>RideOn</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/StyleSheet.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="js/lib/jquery.validate.js"></script>
+    <script src="js/DAL.js"></script>
+    <script src="js/Database.js"></script>
+    <script src="js/Facade.js"></script>
+    <script src="js/Global.js"></script>
+    <script src="js/Util.js"></script>
+    <script src="js/Classes.js"></script>
+</head>
+<body>
+<!--HomePage Divs-->
+<div id="LoginPage" data-role="page">
+    <section data-role="content">
+
+        <img src="css/lib/images/Logo.png" id="LogoImg" alt="image"/>
+        <br>
+        <p id="Index_p" style="text-align: center">Welcome to the RideOn App, please continue by signing in or signing up below.</p>
+        <form id="frmlogin">
+                <label for="txtUsername">Username:</label>
+                <input type="text" id="txtUsername" name="txtUsername" data-clear-btn="true">
+                <label for="txtPswd">Password:</label>
+                <input type="password" id="txtPswd" name="txtPswd" data-clear-btn="true">
+                <label for="ShowPswd">Show Password</label>
+                <input type="checkbox" id="ShowPswd" name="ShowPswd" data-icon="left">
+                <button type="button" id="btnLoginSubmit" name="btnLoginSubmit" data-role="button" class="ui-btn-active" >Submit</button>
+        </form>
+        <hr>
+        <p id="signup" style="text-align: center"><a>Click here</a> to signup</p>
+    </section>
+    <br>
+    <br>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&copy;  2023 PC IT SOLUTIONS</h1>
+    </footer>
+</div>
+<div id="SignupPage" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+                <h1>Sign Up</h1>
+    </header>
+    <section data-role="content">
+        <form id="frmSignup">
+            <label for="txtFirstName">First Name:</label>
+            <input type="text" id="txtFirstName" name="txtFirstName" data-clear-btn="true">
+            <label for="txtLastName">Last Name:</label>
+            <input type="text" id="txtLastName" name="txtLastName" data-clear-btn="true">
+            <label for="txtEmail">Email Address:</label>
+            <input type="email" id="txtEmail" name="txtEmail" data-clear-btn="true">
+            <label for="numPhone">Phone Number:</label>
+            <input type="number" id="numPhone" name="numPhone" data-clear-btn="true">
+            <label for="txtUserName_SU">Username:</label>
+            <input type="text" id="txtUserName_SU" name="txtUserName_SU" data-clear-btn="true">
+            <label for="txtPswd_SU">Password:</label>
+            <input type="password" id="txtPswd_SU" name="txtPswd_SU" data-clear-btn="true">
+            <label for="txtVerifyPswd_SU">Verify Password:</label>
+            <input type="password" id="txtVerifyPswd_SU" name="txtVerifyPswd_SU" data-clear-btn="true">
+            <label for="ShowPswd_SU">Show Password</label>
+            <input type="checkbox" id="ShowPswd_SU" name="ShowPswd_SU" data-icon="left">
+            <label><input type="checkbox" id="Terms" name="Terms" data-icon="left">Terms and Conditions Accepted</label>
+            <div data-role="controlgroup" data-type="horizontal" style="text-align: center">
+                <button type="button" id="btnSave" name="btnSave" data-role="button" class="ui-btn-active">Save</button>
+                <button type="button" id="btnCancel" name="btnCancel" data-role="button" data-theme="b">Cancel</button>
+            </div>
+        </form>
+
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&copy; 2023 PC IT Solutions</h1>
+    </footer>
+</div>
+<div id="HomePage" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col">
+                    <img src="css/lib/images/back-icon.png" alt="imgback" class="backbtn" align="left" id="imgbackHP1"/>
+                </div>
+                <div class="col" style="text-align: center; margin-top: 1%">
+                    <h4 class="username-change">Username</h4>
+                </div>
+                <div class="col" style="text-align: right">
+                    <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" alt="imguser" class="user"  id="imgUser1"/>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="HPcontent" data-role="content">
+            <div id="DrivingSelector">
+                <img src="css/lib/images/driving.png" id="DrivingImg" alt="image"/>
+                <h2 >Are you driving today?</h2>
+            </div>
+            <hr>
+            <div id="RidingSelector">
+                <img src="css/lib/images/riding.png" id="RidingImg" alt="image"/>
+                <h2 >Are you riding today?</h2>
+            </div>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&copy;  2023 PC IT SOLUTIONS</h1>
+    </footer>
+</div>
+<div id="UserProfile" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col">
+                    <img src="css/lib/images/back-icon.png" alt="imgback" class="backbtn" align="left" id="imgbackHP2"/>
+                </div>
+                <div class="col" style="text-align: center; margin-top: 1%">
+                    <h4 class="username-change">Username</h4>
+                </div>
+                <div class="col" style="text-align: right">
+                </div>
+            </div>
+        </div>
+    </header>
+    <section data-role="content">
+        <input type="image"  src="" alt="imguser" id="UPImg" class="userprofile"/>
+        <form id="frmUserProfile">
+            <label for="txtFirstNameUP">First Name:</label>
+            <input type="text" id="txtFirstNameUP" name="txtFirstNameUP" data-clear-btn="true">
+            <label for="txtLastNameUP">Last Name:</label>
+            <input type="text" id="txtLastNameUP" name="txtLastNameUP" data-clear-btn="true">
+            <label for="txtEmailUP">Email Address:</label>
+            <input type="email" id="txtEmailUP" name="txtEmailNameUP" data-clear-btn="true">
+            <label for="numPhoneUP">Phone Number:</label>
+            <input type="number" id="numPhoneUP" name="numPhoneUPP" data-clear-btn="true">
+            <label for="txtUserName_UP">Username:</label>
+            <input type="text" id="txtUserName_UP" name="txtUserName_UP" data-clear-btn="true">
+            <button type="button" id="btnSaveUP" name="btnSaveUP" data-role="button" class="ui-btn-active">Save</button>
+            <button type="button" id="btnCancelUP" name="btnCancelUP" data-role="button" data-theme="b">Cancel</button>
+            <button type="button" id="btnClearDb" name="btnClearDb" data-role="button" data-theme="b">Clear Database</button>
+        </form>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&copy;  2023 PC IT SOLUTIONS</h1>
+    </footer>
+</div>
+
+<!--DriverPage Divs-->
+<div id="DrTripDetails" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col">
+                    <img src="css/lib/images/back-icon.png" alt="imgback" class="backbtn" align="left" id="imgbackHP3"/>
+                </div>
+                <div class="col" style="text-align: center; margin-top: 1%">
+                    <h4 class="username-change">Username</h4>
+                </div>
+                <div class="col" style="text-align: right">
+                    <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" alt="imguser" class="user"  id="imgUser3"/>
+                </div>
+            </div>
+        </div>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#DrTripDetails" data-icon="location" class="ui-btn-active ui-state-persist">Trip</a></li>
+                <li><a href="#DrTripPosted" data-icon="grid">Post</a></li>
+                <li><a href="#DrSchedule" data-icon="calendar">Schedule</a></li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <form id="frmDrTripDetails">
+            <label for="txtOriginDr">Origin :</label>
+            <input type="text" id="txtOriginDr" name="txtOriginDr" data-clear-btn="true">
+            <div class="container text-left" style="padding: 0;">
+                <div class="row">
+                    <div class="col-9">
+                        <label for="txtDestDr">Destination :</label>
+                        <input type="text" id="txtDestDr" name="txtDestDr" data-clear-btn="true">
+                    </div>
+                    <div class="col-3">
+                        <label for="numPriceDr">Price :</label>
+                        <input type="number" id="numPriceDr" name="numPriceDr" data-clear-btn="true">
+                    </div>
+                </div>
+            </div>
+            <label for="AddchkBox">Do you want to add stops ?</label>
+            <input type="checkbox" id="AddchkBox" name="AddcheckBox">
+                <div id="divAddStops" class="container text-left" style="padding: 0;">
+                    <div class="row">
+                        <div class="col-9" id="addStops">
+                            <input type="text" id="txtStop1" name="txtStop1"  data-clear-btn="true" placeholder="Stop 1">
+                            <input type="text" id="txtStop2" name="txtStop1"  data-clear-btn="true" placeholder="Stop 2">
+                            <input type="text" id="txtStop3" name="txtStop1"  data-clear-btn="true" placeholder="Stop 3">
+                        </div>
+                        <div class="col-3" id="addPrice">
+                            <input type="text" id="txtPrice1" name="txtPrice1"  data-clear-btn="true" placeholder="Price">
+                            <input type="text" id="txtPrice2" name="txtPrice1"  data-clear-btn="true" placeholder="Price">
+                            <input type="text" id="txtPrice3" name="txtPrice1"  data-clear-btn="true" placeholder="Price">
+                        </div>
+                    </div>
+                </div>
+            <label for="dtDateDr">Date :</label>
+            <input type="date" id="dtDateDr" name="dtDateDr" data-clear-btn="true">
+            <label for="dtTimeDr">Time :</label>
+            <input type="time" id="dtTimeDr" name="dtTimeDr" data-clear-btn="true">
+            <label for="txtTripDtlsDr">Trip Details:</label>
+            <textarea id="txtTripDtlsDr" name="txtTripDtlsDr" data-clear-btn="true"></textarea>
+            <br>
+            <button type="button" id="btnPostDr" name="btnPostDr" data-role="button" class="ui-btn-active">Post</button>
+        </form>
+        <hr>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&copy; 2023 PC IT Solutions</h1>
+    </footer>
+</div>
+<div id="DrTripPosted" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col">
+                    <img src="css/lib/images/back-icon.png" alt="imgback" class="backbtn" align="left" id="imgbackHP4"/>
+                </div>
+                <div class="col" style="text-align: center; margin-top: 1%">
+                    <h4 class="username-change">Username</h4>
+                </div>
+                <div class="col" style="text-align: right">
+                    <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" alt="imguser" class="user"  id="imgUser4"/>
+                </div>
+            </div>
+        </div>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#DrTripDetails" data-icon="location">Trip</a></li>
+                <li><a href="#DrTripPosted" data-icon="grid" class="ui-btn-active ui-state-persist">Post</a></li>
+                <li><a href="#DrSchedule" data-icon="calendar">Schedule</a></li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <ul id="lstDrViewPost" data-role="listview" class="ui-listview-inset ui-overlay-shadow" data-split-icon="edit">
+
+        </ul>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&copy; 2023 PC IT Solutions</h1>
+    </footer>
+</div>
+<div id="DrTripEdit" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col">
+                    <img src="css/lib/images/back-icon.png" alt="imgback" class="backbtn" align="left" id="imgbackHP5"/>
+                </div>
+                <div class="col" style="text-align: center; margin-top: 1%">
+                    <h4 class="username-change">Username</h4>
+                </div>
+                <div class="col" style="text-align: right">
+                    <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" alt="imguser" class="user"  id="imgUser5"/>
+                </div>
+            </div>
+        </div>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#DrTripDetails" data-icon="location">Trip</a></li>
+                <li><a href="#DrTripPosted" data-icon="grid" class="ui-btn-active ui-state-persist">Post</a></li>
+                <li><a href="#DrSchedule" data-icon="calendar">Schedule</a></li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <form id="frmDrTripEdit">
+            <label for="txtOriginDrEdit">Origin City :</label>
+            <input type="text" id="txtOriginDrEdit" name="txtOriginDrEdit" data-clear-btn="true">
+            <div class="container text-left" style="padding: 0;">
+                <div class="row">
+                    <div class="col-9">
+                        <label for="txtDestDrEdit">Destination City :</label>
+                        <input type="text" id="txtDestDrEdit" name="txtDestDrEdit" data-clear-btn="true">
+                    </div>
+                    <div class="col-3">
+                        <label for="numPriceDrEdit">Price :</label>
+                        <input type="number" id="numPriceDrEdit" name="numPriceDrEdit" data-clear-btn="true">
+                    </div>
+                </div>
+            </div>
+            <label for="AddchkBoxEdit">Do you want to add stops ?</label>
+            <input type="checkbox" id="AddchkBoxEdit" name="AddchkBoxEdit">
+            <div id="divAddStopsEdit" class="container text-left" style="padding: 0;">
+                <div class="row">
+                    <div class="col-9" id="addStopsEdit">
+                        <input class="AddStop" type="text" id="txtEditStop1" name="txtEditStop1"  data-clear-btn="true" placeholder="Stop 1">
+                        <input class="AddStop" type="text" id="txtEditStop2" name="txtEditStop2"  data-clear-btn="true" placeholder="Stop 2">
+                        <input class="AddStop" type="text" id="txtEditStop3" name="txtEditStop3"  data-clear-btn="true" placeholder="Stop 3">
+
+                    </div>
+                    <div class="col-3" id="addPriceEdit">
+                        <input class="AddStop" type="number" id="txtEditPrice1" name="txtEditPrice1"  data-clear-btn="true" placeholder="Price">
+                        <input class="AddStop" type="number" id="txtEditPrice2" name="txtEditPrice2"  data-clear-btn="true" placeholder="Price">
+                        <input class="AddStop" type="number" id="txtEditPrice3" name="txtEditPrice3"  data-clear-btn="true" placeholder="Price">
+                    </div>
+                </div>
+            </div>
+            <label for="dtDateDrEdit">Date :</label>
+            <input type="date" id="dtDateDrEdit" name="dtDateDrEdit" data-clear-btn="true">
+            <label for="dtTimeDrEdit">Time :</label>
+            <input type="time" id="dtTimeDrEdit" name="dtTimeDrEdit" data-clear-btn="true">
+            <label for="txtTripDtlsDrEdit">Trip Details:</label>
+            <textarea id="txtTripDtlsDrEdit" name="txtTripDtlsDrEdit" data-clear-btn="true"></textarea>
+            <br>
+            <div data-role="controlgroup" data-type="horizontal" align="center">
+                <button type="button" id="btnDeleteDr" name="btnDeleteDr" data-role="button" data-theme="b">Delete</button>
+                <button type="button" id="btnUpdateDr" name="btnUpdateDr" data-role="button" class="ui-btn-active">Update</button>
+                <button type="button" id="btnCancelDr" name="btnUpdateDr" data-role="button" data-theme="b">Cancel</button>
+            </div>
+        </form>
+        <hr>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&copy; 2023 PC IT Solutions</h1>
+    </footer>
+</div>
+<div id="DrSchedule" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col">
+                    <img src="css/lib/images/back-icon.png" alt="imgback" class="backbtn" align="left" id="imgbackHP6"/>
+                </div>
+                <div class="col" style="text-align: center; margin-top: 1%">
+                    <h4 class="username-change">Username</h4>
+                </div>
+                <div class="col" style="text-align: right">
+                    <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" alt="imguser" class="user"  id="imgUser6"/>
+                </div>
+            </div>
+        </div>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#DrTripDetails" data-icon="location">Trip</a></li>
+                <li><a href="#DrTripPosted" data-icon="grid">Post</a></li>
+                <li><a href="#DrSchedule" data-icon="calendar" class="ui-btn-active ui-state-persist">Schedule</a></li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <div id="lstDays">
+            <ul id="lstDrSun" data-role="listview" class="ui-listview-inset ui-overlay-shadow" data-split-icon="edit">
+                <li><a href="#">
+                    <h2>Sunday</h2>
+                    <p>Origin: </p>
+                    <p>Destination: </p>
+                    <p>Stops:</p>
+                    <p>Time: </p>
+                    <p>Trip Details:</p>
+                    <a href="#DrScheduleEdit" data-row-id="Sunday" data-rel="content" data-position-to="window">
+                    </a></a>
+                </li>
+            </ul>
+            <ul id="lstDrMon" data-role="listview" class="ui-listview-inset ui-overlay-shadow" data-split-icon="edit">
+                <li><a href="#">
+                    <h2>Monday</h2>
+                    <p>Origin: </p>
+                    <p>Destination: </p>
+                    <p>Stops:</p>
+                    <p>Time: </p>
+                    <p>Trip Details:</p>
+                    <a href="#DrScheduleEdit" data-row-id="Monday" data-rel="content" data-position-to="window">
+                    </a></a>
+                </li>
+            </ul>
+            <ul id="lstDrTue" data-role="listview" class="ui-listview-inset ui-overlay-shadow" data-split-icon="edit">
+                <li><a href="#">
+                    <h2>Tuesday</h2>
+                    <p>Origin: </p>
+                    <p>Destination: </p>
+                    <p>Stops:</p>
+                    <p>Time: </p>
+                    <p>Trip Details:</p>
+                    <a href="#DrScheduleEdit" data-row-id="Tuesday" data-rel="content" data-position-to="window">
+                    </a></a>
+                </li>
+            </ul>
+            <ul id="lstDrWed" data-role="listview" class="ui-listview-inset ui-overlay-shadow" data-split-icon="edit">
+                <li><a href="#">
+                    <h2>Wednesday</h2>
+                    <p>Origin: </p>
+                    <p>Destination: </p>
+                    <p>Stops:</p>
+                    <p>Time: </p>
+                    <p>Trip Details:</p>
+                    <a href="#DrScheduleEdit" data-row-id="Wednesday" data-rel="content" data-position-to="window">
+                    </a></a>
+                </li>
+            </ul>
+            <ul id="lstDrThu" data-role="listview" class="ui-listview-inset ui-overlay-shadow" data-split-icon="edit">
+                <li><a href="#">
+                    <h2>Thursday</h2>
+                    <p>Origin: </p>
+                    <p>Destination: </p>
+                    <p>Stops:</p>
+                    <p>Time: </p>
+                    <p>Trip Details:</p>
+                    <a href="#DrScheduleEdit" data-row-id="Thursday" data-rel="content" data-position-to="window">
+                    </a></a>
+                </li>
+            </ul>
+            <ul id="lstDrFri" data-role="listview" class="ui-listview-inset ui-overlay-shadow" data-split-icon="edit">
+                <li><a href="#">
+                    <h2>Friday</h2>
+                    <p>Origin: </p>
+                    <p>Destination: </p>
+                    <p>Stops:</p>
+                    <p>Time: </p>
+                    <p>Trip Details:</p>
+                    <a href="#DrScheduleEdit" data-row-id="Friday" data-rel="content" data-position-to="window">
+                    </a></a>
+                </li>
+            </ul>
+            <ul id="lstDrSat" data-role="listview" class="ui-listview-inset ui-overlay-shadow" data-split-icon="edit">
+                <li><a href="#">
+                    <h2>Saturday</h2>
+                    <p>Origin: </p>
+                    <p>Destination: </p>
+                    <p>Stops:</p>
+                    <p>Time: </p>
+                    <p>Trip Details:</p>
+                    <a href="#DrScheduleEdit" data-row-id="Saturday" data-rel="content" data-position-to="window">
+                    </a></a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&copy; 2023 PC IT Solutions</h1>
+    </footer>
+</div>
+<div id="DrScheduleEdit" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col">
+                    <img src="css/lib/images/back-icon.png" alt="imgback" class="backbtn" align="left" id="imgbackHP7"/>
+                </div>
+                <div class="col" style="text-align: center; margin-top: 1%">
+                    <h4 class="username-change">Username</h4>
+                </div>
+                <div class="col" style="text-align: right">
+                    <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" alt="imguser" class="user"  id="imgUser7"/>
+                </div>
+            </div>
+        </div>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#DrTripDetails" data-icon="location">Trip</a></li>
+                <li><a href="#DrTripPosted" data-icon="grid">Post</a></li>
+                <li><a href="#DrSchedule" data-icon="calendar" class="ui-btn-active ui-state-persist">Schedule</a></li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <form id="frmDrSchEdit">
+            <label for="txtOriginDrSch">Origin:</label>
+            <input type="text" id="txtOriginDrSch" name="txtOriginDrSch" data-clear-btn="true">
+            <div class="container text-left" style="padding: 0;">
+                <div class="row">
+                    <div class="col-9">
+                        <label for="txtDestDrSch">Destination:</label>
+                        <input type="text" id="txtDestDrSch" name="txtDestDrSch" data-clear-btn="true">
+                    </div>
+                    <div class="col-3">
+                        <label for="numPriceDrSch">Price:</label>
+                        <input type="number" id="numPriceDrSch" name="numPriceDrSch" data-clear-btn="true">
+                    </div>
+                </div>
+            </div>
+            <label for="AddchkBoxSch">Do you want to add stops ?</label>
+            <input type="checkbox" id="AddchkBoxSch" name="AddcheckBoxSch">
+            <div id="divAddStopsSch" class="container text-left" style="padding: 0;">
+                <div class="row">
+                    <div class="col-9" id="addStopsSch">
+                        <input class="AddStop" type="text" id="txtSchStop1" name="txtSchStop1"  data-clear-btn="true" placeholder="Stop 1">
+                        <input class="AddStop" type="text" id="txtSchStop2" name="txtSchStop2"  data-clear-btn="true" placeholder="Stop 2">
+                        <input class="AddStop" type="text" id="txtSchStop3" name="txtSchStop3"  data-clear-btn="true" placeholder="Stop 3">
+                    </div>
+                    <div class="col" id="addPriceSch">
+                        <input class="AddStop" type="number" id="txtSchPrice1" name="txtSchPrice2"  data-clear-btn="true" placeholder="Price">
+                        <input class="AddStop" type="number" id="txtSchPrice2" name="txtSchPrice2"  data-clear-btn="true" placeholder="Price">
+                        <input class="AddStop" type="number" id="txtSchPrice3" name="txtSchPrice3"  data-clear-btn="true" placeholder="Price">
+                    </div>
+                </div>
+            </div>
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <label for="radSingleDr">One-Way</label>
+                <input type="radio" id="radSingleDr" name="radRideType" checked>
+                <label for="radReturnDr">Return</label>
+                <input type="radio" id="radReturnDr" name="radRideType">
+            </fieldset>
+            <div id="Single/ReturnDr" class="row">
+                <div class="col" id="dtTimeSingleDr">
+                    <label for="dtTimeDrSch">Time :</label>
+                    <input type="time" id="dtTimeDrSch" name="dtTimeDrSch" data-clear-btn="true">
+                </div>
+                <div class="col" id="dtTimeDrReturn">
+                    <label for="dtTimeDrReturnSch">Return :</label>
+                    <input type="time" id="dtTimeDrReturnSch" name="dtTimeDrReturnSch" data-clear-btn="true">
+                </div>
+
+            </div>
+
+            <label for="txtTripDtlsDrSch">Trip Details:</label>
+            <textarea id="txtTripDtlsDrSch" name="txtTripDtlsDrSch" data-clear-btn="true"></textarea>
+            <br>
+            <div data-role="controlgroup" data-type="horizontal" align="center">
+                <button type="button" id="btnDeleteDrSch" name="btnDeleteDrSch" data-role="button" data-theme="b">Delete</button>
+                <button type="button" id="btnUpdateDrSch" name="btnUpdateDrSch" data-role="button" class="ui-btn-active">Update</button>
+                <button type="button" id="btnCancelDrSch" name="btnCancelDrSch" data-role="button" data-theme="b">Cancel</button>
+            </div>
+        </form>
+        <hr>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&copy; 2023 PC IT Solutions</h1>
+    </footer>
+</div>
+<div id="DrShowRiders" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col">
+                    <img src="css/lib/images/back-icon.png" alt="imgback" class="backbtn" align="left" id="imgbackHP13"/>
+                </div>
+                <div class="col" style="text-align: center; margin-top: 1%">
+                    <h4 class="username-change">Username</h4>
+                </div>
+                <div class="col" style="text-align: right">
+                    <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" alt="imguser" class="user"  id="imgUser13"/>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section data-role="content">
+        <h3 style="text-align: center"> Rider Details </h3>
+        <ul id="lstDrRiders" data-role="listview" class="ui-listview-inset ui-overlay-shadow" data-split-icon="edit">
+
+        </ul>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&copy; 2023 PC IT Solutions</h1>
+    </footer>
+</div>
+
+<!--RiderPage Divs-->
+<div id="RdTripDetails" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col">
+                    <img src="css/lib/images/back-icon.png" alt="imgback" class="backbtn" align="left" id="imgbackHP8"/>
+                </div>
+                <div class="col" style="text-align: center; margin-top: 1%">
+                    <h4 class="username-change">Username</h4>
+                </div>
+                <div class="col" style="text-align: right">
+                    <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" alt="imguser" class="user"  id="imgUser8"/>
+                </div>
+            </div>
+        </div>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#RdTripDetails" data-icon="location" class="ui-btn-active ui-state-persist">Trip</a></li>
+                <li><a href="#RdTripPosted" data-icon="grid">Post</a></li>
+                <li><a href="#RdSchedule" data-icon="calendar">Schedule</a></li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <form id="frmRdTripDetails">
+            <label for="txtOriginRd">Origin :</label>
+            <input type="text" id="txtOriginRd" name="txtOriginRd" data-clear-btn="true">
+            <div class="container text-left" style="padding: 0;">
+                <div class="row">
+                    <div class="col-9">
+                        <label for="txtDestRd">Destination :</label>
+                        <input type="text" id="txtDestRd" name="txtDestRd" data-clear-btn="true">
+                    </div>
+                    <div class="col-3">
+                        <label for="numPriceRd">Price :</label>
+                        <input type="number" id="numPriceRd" name="numPriceRd" data-clear-btn="true">
+                    </div>
+                </div>
+            </div>
+            <label for="dtDateRd">Date :</label>
+            <input type="date" id="dtDateRd" name="dtDateRd" data-clear-btn="true">
+            <label for="dtTimeRd">Time :</label>
+            <input type="time" id="dtTimeRd" name="dtTimeRd" data-clear-btn="true">
+            <label for="txtTripDtlsRd">Trip Details:</label>
+            <textarea id="txtTripDtlsRd" name="txtTripDtlsRd" data-clear-btn="true"></textarea>
+            <br>
+            <button type="button" id="btnPostRd" name="btnPostRd" data-role="button" class="ui-btn-active">Post</button>
+        </form>
+        <hr>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&copy; 2023 PC IT Solutions</h1>
+    </footer>
+</div>
+<div id="RdTripPosted" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col">
+                    <img src="css/lib/images/back-icon.png" alt="imgback" class="backbtn" align="left" id="imgbackHP9"/>
+                </div>
+                <div class="col" style="text-align: center; margin-top: 1%">
+                    <h4 class="username-change">Username</h4>
+                </div>
+                <div class="col" style="text-align: right">
+                    <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" alt="imguser" class="user"  id="imgUser9"/>
+                </div>
+            </div>
+        </div>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#RdTripDetails" data-icon="location">Trip</a></li>
+                <li><a href="#RdTripPosted" data-icon="grid" class="ui-btn-active ui-state-persist">Post</a></li>
+                <li><a href="#RdSchedule" data-icon="calendar">Schedule</a></li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <ul id="lstRdViewPost" data-role="listview" class="ui-listview-inset ui-overlay-shadow" data-split-icon="edit">
+
+        </ul>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&copy; 2023 PC IT Solutions</h1>
+    </footer>
+</div>
+<div id="RdTripEdit" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col">
+                    <img src="css/lib/images/back-icon.png" alt="imgback" class="backbtn" align="left" id="imgbackHP10"/>
+                </div>
+                <div class="col" style="text-align: center; margin-top: 1%">
+                    <h4 class="username-change">Username</h4>
+                </div>
+                <div class="col" style="text-align: right">
+                    <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" alt="imguser" class="user"  id="imgUser10"/>
+                </div>
+            </div>
+        </div>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#RdTripDetails" data-icon="location">Trip</a></li>
+                <li><a href="#RdTripPosted" data-icon="grid" class="ui-btn-active ui-state-persist">Post</a></li>
+                <li><a href="#RdSchedule" data-icon="calendar">Schedule</a></li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <form id="frmRdTripEdit">
+            <label for="txtOriginRdEdit">Origin City :</label>
+            <input type="text" id="txtOriginRdEdit" name="txtOriginRdEdit" data-clear-btn="true">
+            <div class="container text-left" style=" padding: 0;">
+                <div class="row">
+                    <div class="col-9">
+                        <label for="txtDestRdEdit">Destination City :</label>
+                        <input type="text" id="txtDestRdEdit" name="txtDestRdEdit" data-clear-btn="true">
+                    </div>
+                    <div class="col-3">
+                        <label for="numPriceRdEdit">Price :</label>
+                        <input type="number" id="numPriceRdEdit" name="numPriceRdEdit" data-clear-btn="true">
+                    </div>
+                </div>
+            </div>
+            <label for="dtDateRdEdit">Date :</label>
+            <input type="date" id="dtDateRdEdit" name="dtDateRdEdit" data-clear-btn="true">
+            <label for="dtTimeRdEdit">Time :</label>
+            <input type="time" id="dtTimeRdEdit" name="dtTimeRdEdit" data-clear-btn="true">
+            <label for="txtTripDtlsRdEdit">Trip Details:</label>
+            <textarea id="txtTripDtlsRdEdit" name="txtTripDtlsRdEdit" data-clear-btn="true"></textarea>
+            <br>
+            <div data-role="controlgroup" data-type="horizontal" align="center">
+                <button type="button" id="btnDeleteRd" name="btnDeleteRd" data-role="button" data-theme="b">Delete</button>
+                <button type="button" id="btnUpdateRd" name="btnUpdateRd" data-role="button" class="ui-btn-active">Update</button>
+                <button type="button" id="btnCancelRd" name="btnUpdateRd" data-role="button" data-theme="b">Cancel</button>
+            </div>
+        </form>
+        <hr>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&copy; 2023 PC IT Solutions</h1>
+    </footer>
+</div>
+<div id="RdSchedule" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col">
+                    <img src="css/lib/images/back-icon.png" alt="imgback" class="backbtn" align="left" id="imgbackHP11"/>
+                </div>
+                <div class="col" style="text-align: center; margin-top: 1%">
+                    <h4 class="username-change">Username</h4>
+                </div>
+                <div class="col" style="text-align: right">
+                    <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" alt="imguser" class="user"  id="imgUser11"/>
+                </div>
+            </div>
+        </div>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#RdTripDetails" data-icon="location">Trip</a></li>
+                <li><a href="#RdTripPosted" data-icon="grid">Post</a></li>
+                <li><a href="#RdSchedule" data-icon="calendar" class="ui-btn-active ui-state-persist">Schedule</a></li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <div id="lstDaysRd">
+            <ul id="lstRdSun" data-role="listview" class="ui-listview-inset ui-overlay-shadow" data-split-icon="edit">
+                <li><a href="#">
+                    <h2>Sunday</h2>
+                    <p>Origin: </p>
+                    <p>Destination: </p>
+                    <p>Time: </p>
+                    <p>Trip Details:</p>
+                    <a href="#RdScheduleEdit" data-row-id="Sunday" data-rel="content" data-position-to="window">
+                    </a></a>
+                </li>
+            </ul>
+            <ul id="lstRdMon" data-role="listview" class="ui-listview-inset ui-overlay-shadow" data-split-icon="edit">
+                <li><a href="#">
+                    <h2>Monday</h2>
+                    <p>Origin: </p>
+                    <p>Destination: </p>
+                    <p>Time: </p>
+                    <p>Trip Details:</p>
+                    <a href="#RdScheduleEdit" data-row-id="Monday" data-rel="content" data-position-to="window">
+                    </a></a>
+                </li>
+            </ul>
+            <ul id="lstRdTue" data-role="listview" class="ui-listview-inset ui-overlay-shadow" data-split-icon="edit">
+                <li><a href="#">
+                    <h2>Tuesday</h2>
+                    <p>Origin: </p>
+                    <p>Destination: </p>
+                    <p>Time: </p>
+                    <p>Trip Details:</p>
+                    <a href="#RdScheduleEdit" data-row-id="Tuesday" data-rel="content" data-position-to="window">
+                    </a></a>
+                </li>
+            </ul>
+            <ul id="lstRdWed" data-role="listview" class="ui-listview-inset ui-overlay-shadow" data-split-icon="edit">
+                <li><a href="#">
+                    <h2>Wednesday</h2>
+                    <p>Origin: </p>
+                    <p>Destination: </p>
+                    <p>Time: </p>
+                    <p>Trip Details:</p>
+                    <a href="#RdScheduleEdit" data-row-id="Wednesday" data-rel="content" data-position-to="window">
+                    </a></a>
+                </li>
+            </ul>
+            <ul id="lstRdThu" data-role="listview" class="ui-listview-inset ui-overlay-shadow" data-split-icon="edit">
+                <li><a href="#">
+                    <h2>Thursday</h2>
+                    <p>Origin: </p>
+                    <p>Destination: </p>
+                    <p>Time: </p>
+                    <p>Trip Details:</p>
+                    <a href="#RdScheduleEdit" data-row-id="Thursday" data-rel="content" data-position-to="window">
+                    </a></a>
+                </li>
+            </ul>
+            <ul id="lstRdFri" data-role="listview" class="ui-listview-inset ui-overlay-shadow" data-split-icon="edit">
+                <li><a href="#">
+                    <h2>Friday</h2>
+                    <p>Origin: </p>
+                    <p>Destination: </p>
+                    <p>Time: </p>
+                    <p>Trip Details:</p>
+                    <a href="#RdScheduleEdit" data-row-id="Friday" data-rel="content" data-position-to="window">
+                    </a></a>
+                </li>
+            </ul>
+            <ul id="lstRdSat" data-role="listview" class="ui-listview-inset ui-overlay-shadow" data-split-icon="edit">
+                <li><a href="#">
+                    <h2>Saturday</h2>
+                    <p>Origin: </p>
+                    <p>Destination: </p>
+                    <p>Time: </p>
+                    <p>Trip Details:</p>
+                    <a href="#RdScheduleEdit" data-row-id="Saturday" data-rel="content" data-position-to="window">
+                    </a></a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&copy; 2023 PC IT Solutions</h1>
+    </footer>
+</div>
+<div id="RdScheduleEdit" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col">
+                    <img src="css/lib/images/back-icon.png" alt="imgback" class="backbtn" align="left" id="imgbackHP12"/>
+                </div>
+                <div class="col" style="text-align: center; margin-top: 1%">
+                    <h4 class="username-change">Username</h4>
+                </div>
+                <div class="col" style="text-align: right">
+                    <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" alt="imguser" class="user"  id="imgUser12"/>
+                </div>
+            </div>
+        </div>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#RdTripDetails" data-icon="location">Trip</a></li>
+                <li><a href="#RdTripPosted" data-icon="grid">Post</a></li>
+                <li><a href="#RdSchedule" data-icon="calendar" class="ui-btn-active ui-state-persist">Schedule</a></li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <form id="frmRdSchEdit">
+            <label for="txtOriginRdSch">Origin:</label>
+            <input type="text" id="txtOriginRdSch" name="txtOriginRdSch" data-clear-btn="true">
+            <div class="container text-left" style="padding: 0;">
+                <div class="row">
+                    <div class="col-9">
+                        <label for="txtDestRdSch">Destination:</label>
+                        <input type="text" id="txtDestRdSch" name="txtDestRdSch" data-clear-btn="true">
+                    </div>
+                    <div class="col-3">
+                        <label for="numPriceRdSch">Price:</label>
+                        <input type="number" id="numPriceRdSch" name="numPriceRdSch" data-clear-btn="true">
+                    </div>
+                </div>
+            </div>
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <label for="radSingleRd">One-Way</label>
+                <input type="radio" id="radSingleRd" name="radRideTypeRd" checked>
+                <label for="radReturnRd">Return</label>
+                <input type="radio" id="radReturnRd" name="radRideTypeRd">
+            </fieldset>
+            <div id="Single/ReturnRd" class="row">
+                <div class="col" id="dtTimeSingleRd">
+                    <label for="dtTimeRdSch">Time :</label>
+                    <input type="time" id="dtTimeRdSch" name="dtTimeRdSch" data-clear-btn="true">
+                </div>
+                <div class="col" id="dtTimeRdReturn">
+                    <label for="dtTimeRdReturnSch">Return :</label>
+                    <input type="time" id="dtTimeRdReturnSch" name="dtTimeRdReturnSch" data-clear-btn="true">
+                </div>
+
+            </div>
+
+            <label for="txtTripDtlsRdSch">Trip Details:</label>
+            <textarea id="txtTripDtlsRdSch" name="txtTripDtlsRdSch" data-clear-btn="true"></textarea>
+            <br>
+            <div data-role="controlgroup" data-type="horizontal" align="center">
+                <button type="button" id="btnDeleteRdSch" name="btnDeleteRdSch" data-role="button" data-theme="b">Delete</button>
+                <button type="button" id="btnUpdateRdSch" name="btnUpdateRdSch" data-role="button" class="ui-btn-active">Update</button>
+                <button type="button" id="btnCancelRdSch" name="btnCancelRdSch" data-role="button" data-theme="b">Cancel</button>
+            </div>
+        </form>
+        <hr>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&copy; 2023 PC IT Solutions</h1>
+    </footer>
+</div>
+<div id="RdShowDrivers" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col">
+                    <img src="css/lib/images/back-icon.png" alt="imgback" class="backbtn" align="left" id="imgbackHP14"/>
+                </div>
+                <div class="col" style="text-align: center; margin-top: 1%">
+                    <h4 class="username-change">Username</h4>
+                </div>
+                <div class="col" style="text-align: right">
+                    <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" alt="imguser" class="user"  id="imgUser14"/>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section data-role="content">
+        <ul id="lstRdDrivers" data-role="listview" class="ui-listview-inset ui-overlay-shadow" data-split-icon="edit">
+
+        </ul>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&copy; 2023 PC IT Solutions</h1>
+    </footer>
+</div>
+</body>
+</html>

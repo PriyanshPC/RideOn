@@ -1,0 +1,84 @@
+label.error{ color: #F00;
+    font-weight: bold;
+}
+input.error, select.error,
+textarea.error { border: 1px red solid;
+}
+
+#lstViewReview{
+    border: 1px ;
+}
+
+/*Index page css*/
+#LogoImg{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+#frmlogin{
+    display: contents;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+#Index_H3{
+    text-align: center;
+    margin-top: 0;
+}
+#DrivingSelector{
+    padding: 15%;
+    width: auto;
+    margin: auto;
+    text-align: center;
+    font-size: Small;
+    font-family: Constantia, sans-serif;
+    color: #ededed;
+    background-color: #005599;
+}
+#RidingSelector{
+    padding: 15%;
+    width: auto;
+    margin: auto;
+    text-align: center;
+    font-size: Small;
+    color: #ededed;
+    font-family: Constantia, sans-serif;
+    background-color: #22aadd;
+}
+.user {
+    width: 25%;
+    height: 25%;
+    border-radius: 50%;
+}
+.backbtn {
+    width:20%;
+    height:20%
+}
+.userprofile {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+}
+.container{
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+#DrivingImg,#RidingImg{
+    width:75%;
+    height: 75%;
+}
+
+
+/*Driver Page css*/
+#divAddStops,#divAddStopsEdit,#divAddStopsSch,#dtTimeDrReturn,#dtTimeRdReturn{
+    display:none;
+}
+
+#btnAddStops,#btnAddStopsEdit,#btnAddStopsSch{
+    width : fit-content;
+    height: fit-content;
+}
